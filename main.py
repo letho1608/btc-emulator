@@ -1,9 +1,11 @@
 import hashlib
 import time
+import os
 import random
 from termcolor import colored
 
-max_nonce = 2 ** 32
+os.system('cls')
+max_nonce = 2 ** 64
 difficulty = 5.00
 
 version = 1
@@ -21,7 +23,7 @@ while True:
         block_reward = random.uniform(0.00000000001, 0.00000000003)
         total_bitcoin += block_reward
         total_bitcoin_str = "{:.11f}".format(total_bitcoin)
-        print(colored(f"|Hash: {hash} | Nonce: {str(nonce)[:5].rjust(5)} | BTC: {total_bitcoin_str} |", "green"))
+        print(colored(f"|Hash: {hash} | Nonce: {str(nonce)[:5].rjust(5)} | Difficulty: {difficulty:.2f} | BTC: {total_bitcoin_str} |", "green"))
         previous_block_hash = hash
         nonce = 0
         time.sleep(1)
